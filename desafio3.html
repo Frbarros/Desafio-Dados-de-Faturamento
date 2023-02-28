@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio3</title>
+</head>
+<body>
+    
+    
+    <script>
+        function listaFaturamento(resposta){
+            console.log(resposta) 
+        var listaFaturamento = resposta    
+        var mediaMensal = 0
+        var menorValor = 0
+        var maiorvalor = 0
+        var soma = 0
+        var total = 0
+        var diasAcimaDaMedia = 0
+        
+        for(let i = 0; i < listaFaturamento.length; i++){
+            
+            var faturamento = listaFaturamento[i]
+            soma = soma + faturamento.valor
+            total ++
+
+        }
+
+        mediaMensal = soma / total
+
+        for(let i = 0; i < listaFaturamento.length; i++){
+            var faturamento = listaFaturamento[i]
+            soma = soma + faturamento.valor
+            if (faturamento.valor < menorValor || menorValor == 0){
+                menorValor = faturamento.valor
+            }
+
+            if (faturamento.valor > maiorvalor){
+                maiorvalor = faturamento.valor
+
+            }
+
+            if (faturamento.valor > mediaMensal){
+                diasAcimaDaMedia ++
+            }
+
+        }
+
+        mediaMensal = soma / listaFaturamento.length
+        console.log("media mensal: " + mediaMensal)
+        console.log("menor valor mensal: " + menorValor)
+        console.log("maior valor mensal: " + maiorvalor)
+        console.log("Dias a cima da média: " + diasAcimaDaMedia)
+           
+        }
+        listaFaturamento()
+        
+           
+    </script>
+    <script src="dados.js?callback=listaFaturamento"></script>
+    
+</body>
+</html>
